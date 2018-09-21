@@ -21,7 +21,7 @@ def xDelta(coord, direction):
   elif direction == LEFT:
     return coord - 1
   return coord
-  
+
 def yDelta(coord, direction):
   if direction == UP:
     return coord - 1
@@ -53,14 +53,14 @@ def move_down():
   pixel_list = sense.get_pixels()
   pixel_number = 0
   for pixel in pixel_list:
-    if pixel != [0, 0, 0]:
+    if pixel == get_red:
       pixel_y_x = divmod(pixel_number, 8)
       if pixel_y_x[0] == 7:
-        sense.set_pixel(pixel_y_x[1], pixel_y_x[0], blank)
-        sense.set_pixel(pixel_y_x[1], 0, white)
+        sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
+        sense.set_pixel(pixel_y_x[1], 0, red)
       else:
-        sense.set_pixel(pixel_y_x[1], pixel_y_x[0], blank)
-        sense.set_pixel(pixel_y_x[1], pixel_y_x[0] + 1, white)
+        sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
+        sense.set_pixel(pixel_y_x[1], pixel_y_x[0] + 1, red)
     else:
       pixel_number += 1
 
@@ -78,7 +78,7 @@ def move_up():
         sense.set_pixel(pixel_y_x[1], pixel_y_x[0] - 1, white)
     else:
       pixel_number += 1
-    
+
 def move_right():
   pixel_list = sense.get_pixels()
   pixel_number = 0
@@ -108,6 +108,17 @@ def move_left():
         sense.set_pixel(pixel_y_x[1] - 1, pixel_y_x[0], white)
     else:
       pixel_number += 1
+
+def change_direction(event):
+    if event.direction == 'up':
+        direction = UP
+    elif event.direction == 'down':
+        direction = DOWN
+    elif event.direction == 'left':
+        direction = left
+    elif event.direction == 'right':
+        direction = RIGHT
+
 
 sense.stick.direction_any = change_direction
 
