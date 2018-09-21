@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from sense_hat import SenseHat
 import random
+import time
 
 sense = SenseHat()
 sense.clear()
