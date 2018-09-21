@@ -124,7 +124,7 @@ def change_direction(event):
 sense.stick.direction_any = change_direction
 
 while True:
-  sleep(0.25)
+  time.sleep(0.25)
   if direction == 0:
     move_up()
   elif direction == 1:
