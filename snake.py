@@ -7,7 +7,8 @@ sense.clear()
 white = (255, 255, 255)
 blank = (0, 0, 0)
 red = (255, 0, 0)
-
+get_red = [248, 0, 0]
+length = 2
 
 UP = 0
 RIGHT = 1
