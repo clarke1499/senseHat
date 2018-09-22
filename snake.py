@@ -10,21 +10,20 @@ blank = (0, 0, 0)
 red = (255, 0, 0)
 get_red = [248, 0, 0]
 length = 2
-direction = -1
 
 UP = 0
 RIGHT = 1
 DOWN = 2
 LEFT = 3
 
-def opposite(directionOpp):
-  if directionOpp == UP:
+def opposite(direction):
+  if direction == UP:
     return DOWN
-  elif directionOpp == DOWN:
+  elif direction == DOWN:
     return UP
-  elif directionOpp == LEFT:
+  elif direction == LEFT:
     return RIGHT
-  elif directionOpp == RIGHT:
+  elif direction == RIGHT:
     return LEFT
 
 def xDelta(coord, direction):
@@ -49,7 +48,7 @@ def yDelta(coord, direction):
     return coord + 1
   return coord
 
-def move():
+def move(direction):
   pixel_list = sense.get_pixels()
   pixel_number = 0
   for pixel in pixel_list:
@@ -146,7 +145,7 @@ sense.stick.direction_any = change_direction
 
 while True:
   time.sleep(0.25)
-  move()
+  move(direction)
 #  if direction == 0:
 #    move_up()
 #  elif direction == 1:
