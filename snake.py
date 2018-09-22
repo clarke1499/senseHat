@@ -48,7 +48,7 @@ def yDelta(coord, direction):
     return coord + 1
   return coord
 
-def move():
+def move(direction):
   pixel_list = sense.get_pixels()
   pixel_number = 0
   for pixel in pixel_list:
@@ -145,7 +145,7 @@ sense.stick.direction_any = change_direction
 
 while True:
   time.sleep(0.25)
-  move()
+  move(direction)
 #  if direction == 0:
 #    move_up()
 #  elif direction == 1:
