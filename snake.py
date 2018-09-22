@@ -139,9 +139,8 @@ def change_direction(event):
         direction = RIGHT
 
 
-sense.stick.direction_any = change_direction
-
 while True:
+  sense.stick.direction_any = change_direction
   time.sleep(0.25)
   move()
 #  if direction == 0:
