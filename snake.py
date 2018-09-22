@@ -134,7 +134,7 @@ def change_direction(event):
     elif event.direction == 'down':
         direction = DOWN
     elif event.direction == 'left':
-        direction = left
+        direction = LEFT
     elif event.direction == 'right':
         direction = RIGHT
 
