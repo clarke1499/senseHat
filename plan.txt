@@ -1,0 +1,3 @@
+array for each pixel's direction?
+variable for final pixel in tail?
+  and for head?

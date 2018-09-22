@@ -16,17 +16,35 @@ RIGHT = 1
 DOWN = 2
 LEFT = 3
 
+def opposite(direction):
+  if direction == UP:
+    return DOWN
+  elif direction == DOWN:
+    return UP
+  elif direction == LEFT:
+    return RIGHT
+  elif direction == RIGHT:
+    return LEFT
+
 def xDelta(coord, direction):
   if direction == RIGHT:
+    if coord == 7:
+      return 0
     return coord + 1
   elif direction == LEFT:
+    if coord == 0:
+      return 7
     return coord - 1
   return coord
 
 def yDelta(coord, direction):
   if direction == UP:
+    if coord == 0:
+      return 7
     return coord - 1
   elif direction == DOWN:
+    if coord == 7:
+      return 0
     return coord + 1
   return coord
 
@@ -50,18 +68,18 @@ elif corner == 3:
     direction = 3
   sense.set_pixel(xDelta(7, direction), yDelta(7, direction), red)
 
-def move_down():
+def move():
   pixel_list = sense.get_pixels()
   pixel_number = 0
   for pixel in pixel_list:
     if pixel == get_red:
       pixel_y_x = divmod(pixel_number, 8)
-      if pixel_y_x[0] == 7:
-        sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
-        sense.set_pixel(pixel_y_x[1], 0, red)
-      else:
-        sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
-        sense.set_pixel(pixel_y_x[1], pixel_y_x[0] + 1, red)
+      #if pixel_y_x[0] == 7:
+      #  sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
+      #  sense.set_pixel(pixel_y_x[1], 0, red)
+      #else:
+      sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
+      sense.set_pixel(xDelta(pixel_y_x[1], direction), yDelta(pixel_y_x[0], direction), red)
     else:
       pixel_number += 1
 
@@ -125,11 +143,12 @@ sense.stick.direction_any = change_direction
 
 while True:
   time.sleep(0.25)
-  if direction == 0:
-    move_up()
-  elif direction == 1:
-    move_right()
-  elif direction == 2:
-    move_down()
-  elif direction == 3:
-    move_left()
+  move()
+#  if direction == 0:
+#    move_up()
+#  elif direction == 1:
+#    move_right()
+#  elif direction == 2:
+#    move_down()
+#  elif direction == 3:
+#    move_left()
