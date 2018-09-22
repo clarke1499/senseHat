@@ -129,18 +129,20 @@ def move_left():
       pixel_number += 1
 
 def change_direction(event):
+  if event.action == 'pressed':
+    print event
     if event.direction == 'up':
-        direction = UP
+      direction = UP
     elif event.direction == 'down':
-        direction = DOWN
+      direction = DOWN
     elif event.direction == 'left':
-        direction = LEFT
+      direction = LEFT
     elif event.direction == 'right':
-        direction = RIGHT
+      direction = RIGHT
 
+sense.stick.direction_any = change_direction
 
 while True:
-  sense.stick.direction_any = change_direction
   time.sleep(0.25)
   move()
 #  if direction == 0:
