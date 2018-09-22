@@ -48,26 +48,6 @@ def yDelta(coord, direction):
     return coord + 1
   return coord
 
-corner = random.randint(0, 3)
-if corner == 0:
-  sense.set_pixel(0, 0, white)
-  direction = random.randint(1, 2)
-  sense.set_pixel(xDelta(0, direction), yDelta(0, direction), red)
-elif corner == 1:
-  sense.set_pixel(0, 7, white)
-  direction = random.randint(0, 1)
-  sense.set_pixel(xDelta(0, direction), yDelta(7, direction), red)
-elif corner == 2:
-  sense.set_pixel(7, 0, white)
-  direction = random.randint(2, 3)
-  sense.set_pixel(xDelta(7, direction), yDelta(0, direction), red)
-elif corner == 3:
-  sense.set_pixel(7, 7, white)
-  direction = random.randint(0, 1)
-  if direction == 1:
-    direction = 3
-  sense.set_pixel(xDelta(7, direction), yDelta(7, direction), red)
-
 def move():
   pixel_list = sense.get_pixels()
   pixel_number = 0
@@ -139,6 +119,26 @@ def change_direction(event):
       direction = LEFT
     elif event.direction == 'right':
       direction = RIGHT
+
+corner = random.randint(0, 3)
+if corner == 0:
+  sense.set_pixel(0, 0, white)
+  direction = random.randint(1, 2)
+  sense.set_pixel(xDelta(0, direction), yDelta(0, direction), red)
+elif corner == 1:
+  sense.set_pixel(0, 7, white)
+  direction = random.randint(0, 1)
+  sense.set_pixel(xDelta(0, direction), yDelta(7, direction), red)
+elif corner == 2:
+  sense.set_pixel(7, 0, white)
+  direction = random.randint(2, 3)
+  sense.set_pixel(xDelta(7, direction), yDelta(0, direction), red)
+elif corner == 3:
+  sense.set_pixel(7, 7, white)
+  direction = random.randint(0, 1)
+  if direction == 1:
+    direction = 3
+  sense.set_pixel(xDelta(7, direction), yDelta(7, direction), red)
 
 sense.stick.direction_any = change_direction
 
