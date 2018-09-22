@@ -59,6 +59,7 @@ def move():
       #  sense.set_pixel(pixel_y_x[1], 0, red)
       #else:
       sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
+      print direction
       sense.set_pixel(xDelta(pixel_y_x[1], direction), yDelta(pixel_y_x[0], direction), red)
     else:
       pixel_number += 1
