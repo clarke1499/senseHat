@@ -27,7 +27,7 @@ def opposite(directionOpp):
   elif directionOpp == RIGHT:
     return LEFT
 
-def xDelta(coord, direction):
+def xDelta(coord):
   if direction == RIGHT:
     if coord == 7:
       return 0
@@ -38,7 +38,7 @@ def xDelta(coord, direction):
     return coord - 1
   return coord
 
-def yDelta(coord, direction):
+def yDelta(coord):
   if direction == UP:
     if coord == 0:
       return 7
@@ -61,7 +61,7 @@ def move():
       #else:
       sense.set_pixel(pixel_y_x[1], pixel_y_x[0], white)
       print direction
-      sense.set_pixel(xDelta(pixel_y_x[1], direction), yDelta(pixel_y_x[0], direction), red)
+      sense.set_pixel(xDelta(pixel_y_x[1]), yDelta(pixel_y_x[0]), red)
     else:
       pixel_number += 1
 
